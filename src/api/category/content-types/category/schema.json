@@ -13,10 +13,16 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
     },
     "slug": {
-      "type": "uid"
+      "type": "uid",
+      "required": true,
+      "maxLength": 100
     },
     "articles": {
       "type": "relation",
@@ -24,8 +30,28 @@
       "target": "api::article.article",
       "mappedBy": "category"
     },
-    "description": {
-      "type": "text"
+    "type": {
+      "type": "enumeration",
+      "required": true,
+      "default": "home_interior",
+      "enum": [
+        "home_interior",
+        "office_interior",
+        "data_center"
+      ]
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "designs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::design.design",
+      "mappedBy": "categories"
     }
   }
 }
