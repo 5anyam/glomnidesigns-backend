@@ -26,7 +26,7 @@
     },
     "description": {
       "type": "text",
-      "maxLength": 200,
+      "maxLength": 1200,
       "required": true,
       "unique": false
     },
